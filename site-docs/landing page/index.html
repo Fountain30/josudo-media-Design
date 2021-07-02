@@ -13,17 +13,23 @@
 <body>
     <main id="container">
         <div class="navbar-div">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="40" viewBox="0 0 207 49">
+                    <text font-size="0" style="white-space:pre" fill="rgb(255,145,0)">
+                      <tspan x=".332" y="43" font-family="Inter" font-size="46" font-weight="5" style="white-space:pre;text-transform:none" letter-spacing="3.164">JOSUDO</tspan>
+                    </text>
+                  </svg>                  
+            </div>
             <nav id="navbar">
-                <img src="#" alt="josudo-logo">
                 <ul id="nav-list">
-                    <li><a href="#">What we do</a></li>
-                    <li><a href="#">Contacts</a></li>
-                    <li><a href="#">Learn more</a></li>
+                    <li class="nav-items"><a href="#content-section ">What we do</a></li>
+                    <li class="nav-items"><a href="#contact-section">Contacts</a></li>
+                    <li class="nav-items"><a href="#">Learn more</a></li>
                 </ul>
             </nav>
         </div>
 
-        <div class="content-div">
+        <div class="content-div" id="content-section">
             <section id="image-tiles">
                 <div class="tile">
                     <div class="tile-content">
@@ -62,16 +68,15 @@
                     </div>
                 </div>
             </section>
-
+            
             <section id="brands-section">
                 <div class="brands">
-                    <img src="#" alt="brand1">
-                    <img src="#" alt="brand2">
-                    <img src="#" alt="brand3">
-                    <img src="#" alt="brand4">
+                    <img src="brand svg's/Beau's Hair-DoBrands.svg" alt="brand1">
+                    <img src="brand svg's/print(codez)_Brands.svg" alt="brand2">
+                    <img src="brand svg's/Sensei comicsBrands.svg" alt="brand3">
                 </div>
             </section>
-
+            
             <section id="contact-section">
                 <h2>Contact Us</h2>
                 <form action="#">
@@ -82,11 +87,11 @@
                     <label for="lastname"> Lastname:
                         <input id="lastname" type="text" placeholder="Lastname">
                     </label>
-
+                    
                     <label for="message"> Message:
                         <textarea name="message" id="message" cols="30" rows="10"></textarea>
                     </label>
-
+                    
                 </form>
             </section>
         </div>

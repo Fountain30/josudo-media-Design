@@ -1,11 +1,213 @@
+/** Global Style **/
 :root {
     font-family: Inter;
     font-size: 16px;
-    --nav-bg: 
+    --bg-primary: #FFFDF2;
+    --nav-bg: #FFF5E8;
+    --fg-primary: #321C00;
+    --fg-secondary: #FF9100;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    max-width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 100%;
+    background: var(--bg-primary);
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr auto;
+}
+/** Global Styles End **/
+
+
+/** Navbar Styles **/
+.navbar-div {
+    width: 100%;
+    padding: 10px 30px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 20px;
+    background: var(--nav-bg);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.navbar-div:before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 100%;
+    background-image: linear-gradient(90deg, rgba(255, 58, 58, 0.5), rgba(255, 126, 43, 0.5));
+}
+
+#navbar {
+    width: 70%;
+    display: grid;
+    place-items: center;
+    justify-self: end;
+}
+
+#nav-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-items {
+    list-style: none;
+}
+
+.nav-items a {
+    text-decoration: none;
+    color: var(--fg-primary);
+    text-transform: uppercase;
+}
+/** Navbar Styles End **/
+
+/** Content Div Styles **/
+.content-div {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#image-tiles {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    grid-template-rows: 50% 50%;
+    justify-content: center;
+}
+
+.tile {
+    width: 100%; 
+    height: 300px;
+    background-image: url("../images/img2.jpg");
+    background-size: cover;
+    background-position: top;
+    border-radius: 20px;
+    display: flex;
+    position: relative;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.105), 0 4px 8px rgba(0, 0, 0, 0.201);
+    overflow: hidden;
+}
+
+
+.tile-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 25%;
+    place-items: center;
+    place-content: end;
+    bottom: -25%;
+    background-image: linear-gradient(
+        to bottom, 
+        rgba(225, 225, 225, 0),
+        #fff8ef6d,
+        #fdd7a6a6,
+        #ffc27286
+        );
+    transition: all 500ms ease;
+}
+
+.tile-content h2 {
+    font-weight: 400;
+}
+
+.tile-content button {
+    max-width: 150px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background:#101010;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    color: var(--fg-secondary);
+    outline: none;
+    border: none;
+    transition: all 3s ease;
+}
+
+.tile-content button:focus {
+    border: 1.2px dashed var(--fg-secondary);
+    margin: 1px;
+}
+
+.tile-content:hover {
+    bottom: 0;
+} 
+
+/** Content div Styles End **/
+
+/** Brands Section Styles **/
+#brands-section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    margin: 20px 0;
+}
+
+.brands {
+    width: 90%; 
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    place-self: center;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    background: var(--bg-primary);
+
+}
+
+.brands::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+    padding: 4px;
+    background: linear-gradient(90deg, #ff313198, #ffde06a5);
+    border-radius: 15px;
+    z-index: -1;
+}
+/** Brands Section Styles End **/
+
+/** Contact Section Styles **/
+#contact-section {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    place-items: center
+}
+
+#contact-section form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

@@ -49,12 +49,18 @@
             transition: all 500ms ease;
             background-image: url("img2.jpg");
             background-size: cover;
-            border-radius: 20px;
-            box-shadow: 0 1px 1px rgba(0,0,0,0.1), 
+            border-radius: 5px;
+
+           /** box-shadow: 0 1px 1px rgba(0,0,0,0.1), 
             0 2px 2px rgba(0,0,0,0.1), 
             0 4px 4px rgba(0,0,0,0.1), 
             0 8px 8px rgba(0,0,0,0.1),
-            0 16px 16px rgba(0,0,0,0.1);
+            0 16px 16px rgba(0,0,0,0.1); **/
+
+            border-image-slice: 2;
+            border-bottom-width: 5px;
+            border-bottom-style: solid;
+            border-image-source: linear-gradient(to right, red, orange);
         }
 
         #tile img, #tile div{
@@ -75,19 +81,49 @@
             bottom: -65%;
             transition: all 500ms ease;
             text-align: center;
+            background-image: linear-gradient(
+                to bottom,
+                hsla(0, 0%, 0%, 0) 0%,
+                hsla(0, 0%, 0%, 0.009) 11.7%,
+                hsla(0, 0%, 0%, 0.034) 22.1%,
+                hsla(0, 0%, 0%, 0.072) 31.2%,
+                hsla(0, 0%, 0%, 0.123) 39.4%,
+                hsla(0, 0%, 0%, 0.182) 46.6%,
+                hsla(0, 0%, 0%, 0.249) 53.1%,
+                hsla(0, 0%, 0%, 0.320) 58.9%,
+                hsla(0, 0%, 0%, 0.394) 64.3%,
+                hsla(0, 0%, 0%, 0.468) 69.3%,
+                hsla(0, 0%, 0%, 0.540) 74.1%,
+                hsla(0, 0%, 0%, 0.607) 78.8%,
+                hsla(0, 0%, 0%, 0.668) 83.6%,
+                hsla(0, 0%, 0%, 0.721) 88.7%,
+                hsla(0, 0%, 0%, 0.762) 94.1%,
+                hsla(0, 0%, 0%, 0.790) 100%
+              );
         }
 
-        #tile:before {
+        #tile::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            background-image: url("img2.jpg");
+            z-index: 10;
+        }
+/** 
+        #tile-content:before {
             content: "";
             display: inline-block;
             width: 100%;
             height: 100%;
             transition: all 500ms ease;
             background: #00000000;
-            transform: translateY(20px);
-        }
 
-        #tile:hover:before {
+            opacity: 0;
+        }
+**/
+/** 
+        #tile-content:before {
             content: "";
             display: inline-block;
             width: 100%;
@@ -112,10 +148,11 @@
                 hsla(0, 0%, 0%, 0.762) 94.1%,
                 hsla(0, 0%, 0%, 0.790) 100%
               );
-            transform: translateY(0px);
+
+            opacity: 1;
 
         }
-
+**/
         #tile:hover #tile-content {
             bottom: 0;
         } 
@@ -148,6 +185,12 @@
                 <button type="button" id="btn">Read more</button>
             </div>
         </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="330" height="86" viewBox="0 0 330 86">
+            <text font-size="0" style="white-space:pre">
+              <tspan x="17.476" y="34" fill="rgb(255,145,30)" font-family="Procrastinating Pixie" font-size="36" font-weight="400" style="white-space:pre;text-transform:none" letter-spacing="2.531">Lyrical Music & </tspan> <tspan x="111.035" y="75" fill="rgb(255,145,30)" font-family="Procrastinating Pixie" font-size="36" font-weight="400" style="white-space:pre;text-transform:none" letter-spacing="2.531">Tunes</tspan>
+            </text>
+          </svg>
     </main>
 </body>
 </html>

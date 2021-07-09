@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="#" type="text/css">
+    <script src="#" type="text/javascript"></script>
+    <title>Image Tile Animation Test</title>
+</head>
+<body>
+    <style>
+        :root {
+            font-family: Inter, sans-serif;
+            font-size: 16px;
+            --btn-bg: #202a2a;
+            --btn-fg: #faf4f5;
+            --d: 700ms;
+            --e: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            max-width: 100vw;
+            height: 100vh;
+        }
+
+        #container {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+        }
+
+        #tile {
+            width: 35%;
+            height: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 500ms ease;
+            background-image: url("img2.jpg");
+            background-size: cover;
+            border-radius: 5px;
+
+           /** box-shadow: 0 1px 1px rgba(0,0,0,0.1), 
+            0 2px 2px rgba(0,0,0,0.1), 
+            0 4px 4px rgba(0,0,0,0.1), 
+            0 8px 8px rgba(0,0,0,0.1),
+            0 16px 16px rgba(0,0,0,0.1); **/
+
+            border-image-slice: 2;
+            border-bottom-width: 5px;
+            border-bottom-style: solid;
+            border-image-source: linear-gradient(to right, red, orange);
+        }
+
+        #tile img, #tile div{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        #tile img {
+            background-size: cover;
+        }
+
+        #tile-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            bottom: -65%;
+            transition: all 500ms ease;
+            text-align: center;
+            background-image: linear-gradient(
+                to bottom,
+                hsla(0, 0%, 0%, 0) 0%,
+                hsla(0, 0%, 0%, 0.009) 11.7%,
+                hsla(0, 0%, 0%, 0.034) 22.1%,
+                hsla(0, 0%, 0%, 0.072) 31.2%,
+                hsla(0, 0%, 0%, 0.123) 39.4%,
+                hsla(0, 0%, 0%, 0.182) 46.6%,
+                hsla(0, 0%, 0%, 0.249) 53.1%,
+                hsla(0, 0%, 0%, 0.320) 58.9%,
+                hsla(0, 0%, 0%, 0.394) 64.3%,
+                hsla(0, 0%, 0%, 0.468) 69.3%,
+                hsla(0, 0%, 0%, 0.540) 74.1%,
+                hsla(0, 0%, 0%, 0.607) 78.8%,
+                hsla(0, 0%, 0%, 0.668) 83.6%,
+                hsla(0, 0%, 0%, 0.721) 88.7%,
+                hsla(0, 0%, 0%, 0.762) 94.1%,
+                hsla(0, 0%, 0%, 0.790) 100%
+              );
+        }
+
+        #tile::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            background-image: url("img2.jpg");
+            z-index: 10;
+        }
+/** 
+        #tile-content:before {
+            content: "";
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            transition: all 500ms ease;
+            background: #00000000;
+
+            opacity: 0;
+        }
+**/
+/** 
+        #tile-content:before {
+            content: "";
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            transition: transform calc(var(--d) * 2) var(--e);
+            background-image: linear-gradient(
+                to bottom,
+                hsla(0, 0%, 0%, 0) 0%,
+                hsla(0, 0%, 0%, 0.009) 11.7%,
+                hsla(0, 0%, 0%, 0.034) 22.1%,
+                hsla(0, 0%, 0%, 0.072) 31.2%,
+                hsla(0, 0%, 0%, 0.123) 39.4%,
+                hsla(0, 0%, 0%, 0.182) 46.6%,
+                hsla(0, 0%, 0%, 0.249) 53.1%,
+                hsla(0, 0%, 0%, 0.320) 58.9%,
+                hsla(0, 0%, 0%, 0.394) 64.3%,
+                hsla(0, 0%, 0%, 0.468) 69.3%,
+                hsla(0, 0%, 0%, 0.540) 74.1%,
+                hsla(0, 0%, 0%, 0.607) 78.8%,
+                hsla(0, 0%, 0%, 0.668) 83.6%,
+                hsla(0, 0%, 0%, 0.721) 88.7%,
+                hsla(0, 0%, 0%, 0.762) 94.1%,
+                hsla(0, 0%, 0%, 0.790) 100%
+              );
+
+            opacity: 1;
+
+        }
+**/
+        #tile:hover #tile-content {
+            bottom: 0;
+        } 
+
+        #tile-content button {
+            width: 100px;
+            height: 40px;
+            background: var(--btn-bg);
+            color: var(--btn-fg);
+            outline: none;
+            border: none;
+            border-radius: 2px;
+            font-size: 0.75rem;
+            letter-spacing: .8px;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+
+        #tile-content p {
+            width: 70%;
+        }
+
+    </style>
+
+    <main id="container">
+        <div id="tile">
+            <div id="tile-content">
+                <h2>The Large Tile</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et enim odit obcaecati aliquam dolor </p>
+                <button type="button" id="btn">Read more</button>
+            </div>
+        </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="330" height="86" viewBox="0 0 330 86">
+            <text font-size="0" style="white-space:pre">
+              <tspan x="17.476" y="34" fill="rgb(255,145,30)" font-family="Procrastinating Pixie" font-size="36" font-weight="400" style="white-space:pre;text-transform:none" letter-spacing="2.531">Lyrical Music & </tspan> <tspan x="111.035" y="75" fill="rgb(255,145,30)" font-family="Procrastinating Pixie" font-size="36" font-weight="400" style="white-space:pre;text-transform:none" letter-spacing="2.531">Tunes</tspan>
+            </text>
+          </svg>
+    </main>
+</body>
+</html>

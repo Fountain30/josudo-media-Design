@@ -1,0 +1,44 @@
+--LANDING PAGE
+    1. Navbar 
+        - Logo
+        - List of nav items:
+            - What we do
+            - Contacts 
+            - Learn more
+    
+    2. Image Tiles
+        - images
+        - hover text animation
+        - link to section in content page
+
+    3. Brands container
+        - brands logo and name
+    
+    4. Contacts section 
+        - email form
+        - name input
+        - message input
+
+    5. Footer
+        - Logo 
+        - Contacts and Location
+        - External links to --CONTENT PAGE
+
+--CONTENT PAGE  
+    1. Fixed Navbar
+        - link to section of works    
+        - link to contact section
+
+    2. Contents section 
+        - Media section 
+        - Web Dev/Design section
+        - Mobile App Dev section
+        - Graphics Design section
+        - Research section
+        - Academy section
+    
+    3. Footer
+        - Logo 
+        - Contacts and Location
+        - External links to --LANDING PAGE
+        
